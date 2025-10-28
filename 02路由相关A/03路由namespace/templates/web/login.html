@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+<form id="loginForm" action="{% url 'web:login' %}" method="post">
+    {% csrf_token %}
+    <p><input placeholder="输入用户名" name="username" type="text"></p>
+    <p><input placeholder="输入密码" name="password" type="text"></p>
+    <button type="button" onclick="document.getElementById('loginForm').submit()">登录</button>
+</form>
+</body>
+</html>

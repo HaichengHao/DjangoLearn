@@ -1,0 +1,115 @@
+{% load up %}  {# 加载templatetags下的up.py #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 0.5px solid white;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>{{ a1 }}</h1>
+</div>
+<div>
+    {% for i in lst %}
+        <li>{{ i }}</li>
+    {% endfor %}
+</div>
+<div style="background-color: rebeccapurple;color: white;text-align: center">
+    <table>
+        <thead>
+        <tr>
+            {% for k in dic.keys %}
+
+                <th>{{ k }}</th>
+            {% endfor %}
+
+        </tr>
+
+        </thead>
+        <tbody>
+            {% for v in dic.values %}
+                <td>{{ v }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<div>
+    {{ dic.items }}
+</div>
+
+<div style="background-color: orange;color: white;text-align: center">
+    <table>
+        <thead>
+            <tr>
+                {% for k in infodic_lst.0.keys %}
+                    <td>{{ k }}</td>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in infodic_lst %}
+                <tr>
+                    {% for v in info.values %}
+                        <td>{{ v }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td>{{ obj.name }}</td>
+                    <td>{{ obj.age }}</td>
+                    <td>{{ obj.gender }}</td>
+                    <td>{{ obj.address }}</td>
+                </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<div>
+    {{ func }}
+</div>
+
+<div>
+    <p>{{ gen_er_obj }}</p>
+    <p>
+        {{ gen_er_func }}
+    </p>
+    <ul>
+        {% for f in gen_er_func %}
+            <li>{{ f }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div>{{ datetime|date:"Y-m-d H:i:s" }}</div>
+<div>
+    {{ 'a' | upw }}
+</div>
+<div>
+    <p>{{ lst }}</p>
+</div>
+
+
+<div>
+    {% mytag %}
+</div>
+
+<div>{% mytag2 "你" "什么" %}</div>
+<img src="{% static 'img.png' %}" alt="">
+
+<p>{% mytag3 %}</p>
+
+{% include 'api/plg.html' %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆界面</title>
+</head>
+<body>
+<form id='form1' action="{% url 'user:login' %}" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="输入用户名" name="username">
+    <button onclick="document.getElementById('form1').submit()">提交</button>
+</form>
+</body>
+</html>
