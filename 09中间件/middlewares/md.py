@@ -61,6 +61,12 @@ class MyMD2(MiddlewareMixin):
         print('请求走了2')
         return response
 
+    def process_exception(self, request, exception):
+        print('出现异常', exception)
+        return HttpResponse("发生错误")
+
+    def process_template_response(self,request,response):
+        response.render()
 
 class MyMD3(MiddlewareMixin):
     def process_request(self, request):
